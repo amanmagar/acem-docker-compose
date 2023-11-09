@@ -1,5 +1,5 @@
 /**
- * Created by Syed Afzal
+ *ACEM
  */
 require("./config/config");
 
@@ -11,7 +11,7 @@ const cors = require("cors");
 const db = require("./db");
 
 const app = express();
-
+const port = process.env.PORT;
 //connection from db here
 db.connect(app);
 
@@ -25,8 +25,8 @@ app.use(express.static(path.join(__dirname, "public")));
 require("./routes")(app);
 
 app.on("ready", () => {
-  app.listen(3000, () => {
-    console.log("Server is up on port", 3000);
+  app.listen( port, () => {
+    console.log("This is up on port", port );
   });
 });
 
